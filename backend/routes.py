@@ -3,7 +3,9 @@ from flask import current_app, render_template, jsonify, request, url_for
 from flask_login import login_user, logout_user, login_required, current_user
 from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
 from werkzeug.security import generate_password_hash, check_password_hash
-from Test1.backend.models import Admin, Opportunity, db
+
+# ✅ FIXED LINE (ONLY THIS CHANGED)
+from models import Admin, Opportunity, db
 
 CATEGORY_LABELS = {
     'technology': 'Technology',
