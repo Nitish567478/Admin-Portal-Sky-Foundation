@@ -10,7 +10,7 @@ generateCaptcha('login');
 generateCaptcha('signup');
 generateCaptcha('forgot');
 
-const API_BASE = '/api';
+const API_BASE = 'https://admin-portal-sky-foundation-3.onrender.com/api';
 let currentUser = null;
 let editingOpportunityId = null;
 const categoryLabels = {
