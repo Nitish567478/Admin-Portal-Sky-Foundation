@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from flask_login import LoginManager
 from config import Config
 from models import db, Admin
@@ -6,6 +7,9 @@ from routes import init_routes
 
 app = Flask(__name__, static_folder='sky', static_url_path='', template_folder='sky')
 app.config.from_object(Config)
+
+# ✅ FIX: Proper CORS enable
+CORS(app, supports_credentials=True)
 
 # Initialize DB
 db.init_app(app)
