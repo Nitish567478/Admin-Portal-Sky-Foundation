@@ -10,6 +10,7 @@ generateCaptcha('login');
 generateCaptcha('signup');
 generateCaptcha('forgot');
 
+
 const API_BASE = 'https://admin-portal-sky-foundation-3.onrender.com/api';
 let currentUser = null;
 let editingOpportunityId = null;
@@ -43,6 +44,23 @@ function showOriginWarning() {
     if (!overlay) return;
     overlay.classList.add('active');
 }
+
+window.addEventListener('load', async () => {
+ 
+    if (false && !isServedFromFlaskPort()) {
+        showOriginWarning();
+        return;
+    }
+
+    clearStaticOpportunityCards();
+
+    if (await loadCurrentUser()) {
+        showDashboard(currentUser.email);
+        await loadOpportunities();
+    } else {
+        showPage('loginPage');
+    }
+});
 
 function formatCategory(value) {
     return categoryLabels[value] || value || '';
