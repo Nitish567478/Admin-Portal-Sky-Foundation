@@ -1,8 +1,8 @@
 from flask import Flask
 from flask_login import LoginManager
 from config import Config
-from models import db, Admin
-from routes import init_routes
+from Test1.backend.models import db, Admin
+from Test1.backend.routes import init_routes
 
 app = Flask(__name__, static_folder='sky', static_url_path='', template_folder='sky')
 app.config.from_object(Config)
